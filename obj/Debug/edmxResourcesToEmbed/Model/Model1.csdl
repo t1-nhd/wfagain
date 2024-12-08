@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NhatNamFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Hang">
+    <Key>
+      <PropertyRef Name="MaH" />
+    </Key>
+    <Property Name="MaH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="NhapChiTiets" Relationship="Self.FK__NhapChiTiet__MaH__47DBAE45" FromRole="Hang" ToRole="NhapChiTiet" />
+    <NavigationProperty Name="XuatChiTiets" Relationship="Self.FK__XuatChiTiet__MaH__5070F446" FromRole="Hang" ToRole="XuatChiTiet" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenKH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Xuats" Relationship="Self.FK__Xuat__MaKH__4CA06362" FromRole="KhachHang" ToRole="Xuat" />
+  </EntityType>
+  <EntityType Name="NguoiBan">
+    <Key>
+      <PropertyRef Name="MaNB" />
+    </Key>
+    <Property Name="MaNB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenNB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Nhaps" Relationship="Self.FK__Nhap__MaNB__4316F928" FromRole="NguoiBan" ToRole="Nhap" />
+  </EntityType>
+  <EntityType Name="Nhap">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaNB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgayNhap" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CongTH" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ThueSuatGTGT" Type="Double" Nullable="false" />
+    <Property Name="TongTT" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="NguoiBan" Relationship="Self.FK__Nhap__MaNB__4316F928" FromRole="Nhap" ToRole="NguoiBan" />
+    <NavigationProperty Name="NhapChiTiets" Relationship="Self.FK__NhapChiTie__MaHD__48CFD27E" FromRole="Nhap" ToRole="NhapChiTiet" />
+  </EntityType>
+  <EntityType Name="NhapChiTiet">
+    <Key>
+      <PropertyRef Name="MaHD" />
+      <PropertyRef Name="MaH" />
+    </Key>
+    <Property Name="MaHD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DonGiaNhap" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Hang" Relationship="Self.FK__NhapChiTiet__MaH__47DBAE45" FromRole="NhapChiTiet" ToRole="Hang" />
+    <NavigationProperty Name="Nhap" Relationship="Self.FK__NhapChiTie__MaHD__48CFD27E" FromRole="NhapChiTiet" ToRole="Nhap" />
+  </EntityType>
+  <EntityType Name="Xuat">
+    <Key>
+      <PropertyRef Name="MaHDX" />
+    </Key>
+    <Property Name="MaHDX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgayXK" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TongCong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="MaKH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK__Xuat__MaKH__4CA06362" FromRole="Xuat" ToRole="KhachHang" />
+    <NavigationProperty Name="XuatChiTiets" Relationship="Self.FK__XuatChiTi__MaHDX__5165187F" FromRole="Xuat" ToRole="XuatChiTiet" />
+  </EntityType>
+  <EntityType Name="XuatChiTiet">
+    <Key>
+      <PropertyRef Name="MaHDX" />
+      <PropertyRef Name="MaH" />
+    </Key>
+    <Property Name="MaHDX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Hang" Relationship="Self.FK__XuatChiTiet__MaH__5070F446" FromRole="XuatChiTiet" ToRole="Hang" />
+    <NavigationProperty Name="Xuat" Relationship="Self.FK__XuatChiTi__MaHDX__5165187F" FromRole="XuatChiTiet" ToRole="Xuat" />
+  </EntityType>
+  <Association Name="FK__NhapChiTiet__MaH__47DBAE45">
+    <End Role="Hang" Type="Self.Hang" Multiplicity="1" />
+    <End Role="NhapChiTiet" Type="Self.NhapChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hang">
+        <PropertyRef Name="MaH" />
+      </Principal>
+      <Dependent Role="NhapChiTiet">
+        <PropertyRef Name="MaH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XuatChiTiet__MaH__5070F446">
+    <End Role="Hang" Type="Self.Hang" Multiplicity="1" />
+    <End Role="XuatChiTiet" Type="Self.XuatChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hang">
+        <PropertyRef Name="MaH" />
+      </Principal>
+      <Dependent Role="XuatChiTiet">
+        <PropertyRef Name="MaH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Xuat__MaKH__4CA06362">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="Xuat" Type="Self.Xuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="Xuat">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nhap__MaNB__4316F928">
+    <End Role="NguoiBan" Type="Self.NguoiBan" Multiplicity="1" />
+    <End Role="Nhap" Type="Self.Nhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiBan">
+        <PropertyRef Name="MaNB" />
+      </Principal>
+      <Dependent Role="Nhap">
+        <PropertyRef Name="MaNB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NhapChiTie__MaHD__48CFD27E">
+    <End Role="Nhap" Type="Self.Nhap" Multiplicity="1" />
+    <End Role="NhapChiTiet" Type="Self.NhapChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nhap">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="NhapChiTiet">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XuatChiTi__MaHDX__5165187F">
+    <End Role="Xuat" Type="Self.Xuat" Multiplicity="1" />
+    <End Role="XuatChiTiet" Type="Self.XuatChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xuat">
+        <PropertyRef Name="MaHDX" />
+      </Principal>
+      <Dependent Role="XuatChiTiet">
+        <PropertyRef Name="MaHDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Hangs" EntityType="Self.Hang" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="NguoiBans" EntityType="Self.NguoiBan" />
+    <EntitySet Name="Nhaps" EntityType="Self.Nhap" />
+    <EntitySet Name="NhapChiTiets" EntityType="Self.NhapChiTiet" />
+    <EntitySet Name="Xuats" EntityType="Self.Xuat" />
+    <EntitySet Name="XuatChiTiets" EntityType="Self.XuatChiTiet" />
+    <AssociationSet Name="FK__NhapChiTiet__MaH__47DBAE45" Association="Self.FK__NhapChiTiet__MaH__47DBAE45">
+      <End Role="Hang" EntitySet="Hangs" />
+      <End Role="NhapChiTiet" EntitySet="NhapChiTiets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XuatChiTiet__MaH__5070F446" Association="Self.FK__XuatChiTiet__MaH__5070F446">
+      <End Role="Hang" EntitySet="Hangs" />
+      <End Role="XuatChiTiet" EntitySet="XuatChiTiets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Xuat__MaKH__4CA06362" Association="Self.FK__Xuat__MaKH__4CA06362">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="Xuat" EntitySet="Xuats" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nhap__MaNB__4316F928" Association="Self.FK__Nhap__MaNB__4316F928">
+      <End Role="NguoiBan" EntitySet="NguoiBans" />
+      <End Role="Nhap" EntitySet="Nhaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NhapChiTie__MaHD__48CFD27E" Association="Self.FK__NhapChiTie__MaHD__48CFD27E">
+      <End Role="Nhap" EntitySet="Nhaps" />
+      <End Role="NhapChiTiet" EntitySet="NhapChiTiets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XuatChiTi__MaHDX__5165187F" Association="Self.FK__XuatChiTi__MaHDX__5165187F">
+      <End Role="Xuat" EntitySet="Xuats" />
+      <End Role="XuatChiTiet" EntitySet="XuatChiTiets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

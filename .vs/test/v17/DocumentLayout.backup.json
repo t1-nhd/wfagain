@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formcreatehoadonxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formcreatehoadonxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formcreatehoadonxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formcreatehoadonxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormXuat.cs",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormXuat.cs",
+              "RelativeDocumentMoniker": "FormXuat.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormXuat.cs",
+              "RelativeToolTip": "FormXuat.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAgwCgAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:29:01.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormXuat.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormXuat.cs",
+              "RelativeDocumentMoniker": "FormXuat.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormXuat.cs [Design]",
+              "RelativeToolTip": "FormXuat.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:28:59.93Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormCreateHoaDonXuat.cs",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs",
+              "RelativeDocumentMoniker": "FormCreateHoaDonXuat.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs*",
+              "RelativeToolTip": "FormCreateHoaDonXuat.cs*",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAcwHYAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:23:24.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormCreateHoaDonXuat.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs",
+              "RelativeDocumentMoniker": "FormCreateHoaDonXuat.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs [Design]*",
+              "RelativeToolTip": "FormCreateHoaDonXuat.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-08T18:23:22.206Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

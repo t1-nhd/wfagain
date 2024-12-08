@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NhatNamFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Hang">
+    <Key>
+      <PropertyRef Name="MaH" />
+    </Key>
+    <Property Name="MaH" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenH" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DonGia" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenKH" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NguoiBan">
+    <Key>
+      <PropertyRef Name="MaNB" />
+    </Key>
+    <Property Name="MaNB" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenNB" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nhap">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaNB" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NgayNhap" Type="date" Nullable="false" />
+    <Property Name="CongTH" Type="money" Nullable="false" />
+    <Property Name="ThueSuatGTGT" Type="float" Nullable="false" />
+    <Property Name="TongTT" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhapChiTiet">
+    <Key>
+      <PropertyRef Name="MaHD" />
+      <PropertyRef Name="MaH" />
+    </Key>
+    <Property Name="MaHD" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaH" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DonGiaNhap" Type="money" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Xuat">
+    <Key>
+      <PropertyRef Name="MaHDX" />
+    </Key>
+    <Property Name="MaHDX" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NgayXK" Type="date" Nullable="false" />
+    <Property Name="TongCong" Type="money" Nullable="false" />
+    <Property Name="MaKH" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="XuatChiTiet">
+    <Key>
+      <PropertyRef Name="MaHDX" />
+      <PropertyRef Name="MaH" />
+    </Key>
+    <Property Name="MaHDX" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MaH" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Nhap__MaNB__4316F928">
+    <End Role="NguoiBan" Type="Self.NguoiBan" Multiplicity="1" />
+    <End Role="Nhap" Type="Self.Nhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguoiBan">
+        <PropertyRef Name="MaNB" />
+      </Principal>
+      <Dependent Role="Nhap">
+        <PropertyRef Name="MaNB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NhapChiTie__MaHD__48CFD27E">
+    <End Role="Nhap" Type="Self.Nhap" Multiplicity="1" />
+    <End Role="NhapChiTiet" Type="Self.NhapChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nhap">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="NhapChiTiet">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NhapChiTiet__MaH__47DBAE45">
+    <End Role="Hang" Type="Self.Hang" Multiplicity="1" />
+    <End Role="NhapChiTiet" Type="Self.NhapChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hang">
+        <PropertyRef Name="MaH" />
+      </Principal>
+      <Dependent Role="NhapChiTiet">
+        <PropertyRef Name="MaH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Xuat__MaKH__4CA06362">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="Xuat" Type="Self.Xuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="Xuat">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XuatChiTi__MaHDX__5165187F">
+    <End Role="Xuat" Type="Self.Xuat" Multiplicity="1" />
+    <End Role="XuatChiTiet" Type="Self.XuatChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xuat">
+        <PropertyRef Name="MaHDX" />
+      </Principal>
+      <Dependent Role="XuatChiTiet">
+        <PropertyRef Name="MaHDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__XuatChiTiet__MaH__5070F446">
+    <End Role="Hang" Type="Self.Hang" Multiplicity="1" />
+    <End Role="XuatChiTiet" Type="Self.XuatChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hang">
+        <PropertyRef Name="MaH" />
+      </Principal>
+      <Dependent Role="XuatChiTiet">
+        <PropertyRef Name="MaH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NhatNamFoodModelStoreContainer">
+    <EntitySet Name="Hang" EntityType="Self.Hang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiBan" EntityType="Self.NguoiBan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nhap" EntityType="Self.Nhap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhapChiTiet" EntityType="Self.NhapChiTiet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Xuat" EntityType="Self.Xuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XuatChiTiet" EntityType="Self.XuatChiTiet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Nhap__MaNB__4316F928" Association="Self.FK__Nhap__MaNB__4316F928">
+      <End Role="NguoiBan" EntitySet="NguoiBan" />
+      <End Role="Nhap" EntitySet="Nhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NhapChiTie__MaHD__48CFD27E" Association="Self.FK__NhapChiTie__MaHD__48CFD27E">
+      <End Role="Nhap" EntitySet="Nhap" />
+      <End Role="NhapChiTiet" EntitySet="NhapChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NhapChiTiet__MaH__47DBAE45" Association="Self.FK__NhapChiTiet__MaH__47DBAE45">
+      <End Role="Hang" EntitySet="Hang" />
+      <End Role="NhapChiTiet" EntitySet="NhapChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Xuat__MaKH__4CA06362" Association="Self.FK__Xuat__MaKH__4CA06362">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="Xuat" EntitySet="Xuat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XuatChiTi__MaHDX__5165187F" Association="Self.FK__XuatChiTi__MaHDX__5165187F">
+      <End Role="Xuat" EntitySet="Xuat" />
+      <End Role="XuatChiTiet" EntitySet="XuatChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__XuatChiTiet__MaH__5070F446" Association="Self.FK__XuatChiTiet__MaH__5070F446">
+      <End Role="Hang" EntitySet="Hang" />
+      <End Role="XuatChiTiet" EntitySet="XuatChiTiet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

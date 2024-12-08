@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NhatNamFoodModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Hangs">
+      <EntityTypeMapping TypeName="NhatNamFoodModel.Hang">
+        <MappingFragment StoreEntitySet="Hang">
+          <ScalarProperty Name="MaH" ColumnName="MaH" />
+          <ScalarProperty Name="TenH" ColumnName="TenH" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="NhatNamFoodModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiBans">
+      <EntityTypeMapping TypeName="NhatNamFoodModel.NguoiBan">
+        <MappingFragment StoreEntitySet="NguoiBan">
+          <ScalarProperty Name="MaNB" ColumnName="MaNB" />
+          <ScalarProperty Name="TenNB" ColumnName="TenNB" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nhaps">
+      <EntityTypeMapping TypeName="NhatNamFoodModel.Nhap">
+        <MappingFragment StoreEntitySet="Nhap">
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="MaNB" ColumnName="MaNB" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="CongTH" ColumnName="CongTH" />
+          <ScalarProperty Name="ThueSuatGTGT" ColumnName="ThueSuatGTGT" />
+          <ScalarProperty Name="TongTT" ColumnName="TongTT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhapChiTiets">
+      <EntityTypeMapping TypeName="NhatNamFoodModel.NhapChiTiet">
+        <MappingFragment StoreEntitySet="NhapChiTiet">
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="MaH" ColumnName="MaH" />
+          <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Xuats">
+      <EntityTypeMapping TypeName="NhatNamFoodModel.Xuat">
+        <MappingFragment StoreEntitySet="Xuat">
+          <ScalarProperty Name="MaHDX" ColumnName="MaHDX" />
+          <ScalarProperty Name="NgayXK" ColumnName="NgayXK" />
+          <ScalarProperty Name="TongCong" ColumnName="TongCong" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XuatChiTiets">
+      <EntityTypeMapping TypeName="NhatNamFoodModel.XuatChiTiet">
+        <MappingFragment StoreEntitySet="XuatChiTiet">
+          <ScalarProperty Name="MaHDX" ColumnName="MaHDX" />
+          <ScalarProperty Name="MaH" ColumnName="MaH" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
