@@ -116,7 +116,7 @@ namespace test
                     int newSl = int.Parse(row["SoLuong"].ToString()) + sl;
                     int newThanhTien = newSl * (int)xuatRepository.getHang(maH).DonGia;
                     row["SoLuong"] = newSl.ToString();
-                    row["ThanhTien"] = newThanhTien.ToString("N0", new System.Globalization.CultureInfo("de-DE"));
+                    row["ThanhTien"] = newThanhTien.ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
                     
                     isExist = true;
                     break;
@@ -155,15 +155,16 @@ namespace test
 
         private void DGVNewXuatCT_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == DGVNewXuatCT.Columns.Count - 1)
+            if(e.ColumnIndex == DGVNewXuatCT.Columns.Count - 1 && e.RowIndex >= 0 && e.RowIndex < dataTable.Rows.Count)
             {
-                 dataTable.Rows.RemoveAt(e.RowIndex);
+                dataTable.Rows.RemoveAt(e.RowIndex);
                 if (dataTable.Rows.Count == 0) {
                     saveXuatBt.Enabled = false;
                 }
             }
         }
 
+        public event EventHandler CreateSuccessfully;
         private void saveXuatBt_Click(object sender, EventArgs e)
         {
             using(var db = new Model1())
@@ -199,6 +200,8 @@ namespace test
                     dataTable.Clear();
                     this.Close();
                     MessageBox.Show("Thêm hóa đơn xuất thành công");
+
+                    CreateSuccessfully?.Invoke(this, EventArgs.Empty);
                 }
                 catch (Exception ex)
                 {
@@ -206,6 +209,60 @@ namespace test
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        int rowIndex;
+        private void DGVNewXuatCT_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+            if (rowIndex >= 0 && rowIndex < dataTable.Rows.Count) {
+                DataGridViewRow row = DGVNewXuatCT.Rows[rowIndex];
+
+                string maH = row.Cells["MaH"].Value.ToString();
+                int sl = int.Parse(row.Cells["SoLuong"].Value.ToString());
+                Hang thisHang = xuatRepository.getHang(maH);
+                string donGia = thisHang.DonGia.ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
+                string thanhTien = (sl * (int)thisHang.DonGia).ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
+
+                productCbBox.SelectedValue = maH;
+                unitPriceLabel.Text = donGia;
+                lastPriceLabel.Text = thanhTien;
+                quantity.Value = sl;
+
+                addItemBt.Visible = false;
+                updateItemBt.Visible = true;
+                cancelUpdateItemBt.Visible = true;
+                label6.Text = "Cập nhật chi tiết";
+            }
+        }
+
+        private void updateItemBt_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = DGVNewXuatCT.Rows[rowIndex];
+            string maH = row.Cells["MaH"].Value.ToString();
+            int sl = int.Parse(quantity.Value.ToString());
+            int tt = sl * (int)xuatRepository.getHang(maH).DonGia;
+            string thanhTien = tt.ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
+
+            DataRow foundRow = dataTable.Select($"MaH = '{maH}'").First();
+
+            foundRow["SoLuong"] = sl;
+            foundRow["ThanhTien"] = thanhTien;
+            foundRow["tt"] = tt;
+
+            DGVNewXuatCT.DataSource = null;
+            DGVNewXuatCT.DataSource = dataTable;
+            DGVNewXuatCT.Columns["MaH"].Visible = false;
+            DGVNewXuatCT.Columns["tt"].Visible = false;
+            cancelUpdateItemBt_Click(sender, e);
+        }
+
+        private void cancelUpdateItemBt_Click(object sender, EventArgs e)
+        {
+            label6.Text = "Thêm các chi tiết";
+            updateItemBt.Visible = false;
+            cancelUpdateItemBt.Visible = false;
+            addItemBt.Visible = true;
         }
     }
 }

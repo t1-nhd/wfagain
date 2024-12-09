@@ -36,9 +36,9 @@
             // dataGridXuatCT
             // 
             this.dataGridXuatCT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridXuatCT.Location = new System.Drawing.Point(12, 115);
+            this.dataGridXuatCT.Location = new System.Drawing.Point(16, 156);
             this.dataGridXuatCT.Name = "dataGridXuatCT";
-            this.dataGridXuatCT.Size = new System.Drawing.Size(564, 170);
+            this.dataGridXuatCT.Size = new System.Drawing.Size(560, 170);
             this.dataGridXuatCT.TabIndex = 0;
             // 
             // cthdx_label
@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 403);
+            this.ClientSize = new System.Drawing.Size(588, 338);
             this.Controls.Add(this.cthdx_label);
             this.Controls.Add(this.dataGridXuatCT);
             this.Name = "FormXuatChiTiet";

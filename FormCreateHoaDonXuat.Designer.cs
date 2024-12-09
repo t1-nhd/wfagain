@@ -46,7 +46,8 @@
             this.lastPriceLabel = new System.Windows.Forms.Label();
             this.addItemBt = new System.Windows.Forms.Button();
             this.saveXuatBt = new System.Windows.Forms.Button();
-            this.hiddenLabel1 = new System.Windows.Forms.Label();
+            this.updateItemBt = new System.Windows.Forms.Button();
+            this.cancelUpdateItemBt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVNewXuatCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantity)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             this.DGVNewXuatCT.Name = "DGVNewXuatCT";
             this.DGVNewXuatCT.Size = new System.Drawing.Size(445, 336);
             this.DGVNewXuatCT.TabIndex = 1;
+            this.DGVNewXuatCT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVNewXuatCT_CellClick);
             this.DGVNewXuatCT.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVNewXuatCT_CellDoubleClick);
             // 
             // label2
@@ -228,21 +230,36 @@
             this.saveXuatBt.UseVisualStyleBackColor = true;
             this.saveXuatBt.Click += new System.EventHandler(this.saveXuatBt_Click);
             // 
-            // hiddenLabel1
+            // updateItemBt
             // 
-            this.hiddenLabel1.AutoSize = true;
-            this.hiddenLabel1.Location = new System.Drawing.Point(598, 206);
-            this.hiddenLabel1.Name = "hiddenLabel1";
-            this.hiddenLabel1.Size = new System.Drawing.Size(0, 13);
-            this.hiddenLabel1.TabIndex = 14;
+            this.updateItemBt.Location = new System.Drawing.Point(466, 340);
+            this.updateItemBt.Name = "updateItemBt";
+            this.updateItemBt.Size = new System.Drawing.Size(191, 23);
+            this.updateItemBt.TabIndex = 12;
+            this.updateItemBt.Text = "Cập nhật chi tiết";
+            this.updateItemBt.UseVisualStyleBackColor = true;
+            this.updateItemBt.Visible = false;
+            this.updateItemBt.Click += new System.EventHandler(this.updateItemBt_Click);
+            // 
+            // cancelUpdateItemBt
+            // 
+            this.cancelUpdateItemBt.Location = new System.Drawing.Point(466, 369);
+            this.cancelUpdateItemBt.Name = "cancelUpdateItemBt";
+            this.cancelUpdateItemBt.Size = new System.Drawing.Size(191, 23);
+            this.cancelUpdateItemBt.TabIndex = 12;
+            this.cancelUpdateItemBt.Text = "Hủy";
+            this.cancelUpdateItemBt.UseVisualStyleBackColor = true;
+            this.cancelUpdateItemBt.Visible = false;
+            this.cancelUpdateItemBt.Click += new System.EventHandler(this.cancelUpdateItemBt_Click);
             // 
             // FormCreateHoaDonXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 468);
-            this.Controls.Add(this.hiddenLabel1);
             this.Controls.Add(this.saveXuatBt);
+            this.Controls.Add(this.cancelUpdateItemBt);
+            this.Controls.Add(this.updateItemBt);
             this.Controls.Add(this.addItemBt);
             this.Controls.Add(this.lastPriceLabel);
             this.Controls.Add(this.label11);
@@ -289,6 +306,7 @@
         private System.Windows.Forms.Label lastPriceLabel;
         private System.Windows.Forms.Button addItemBt;
         private System.Windows.Forms.Button saveXuatBt;
-        private System.Windows.Forms.Label hiddenLabel1;
+        private System.Windows.Forms.Button updateItemBt;
+        private System.Windows.Forms.Button cancelUpdateItemBt;
     }
 }

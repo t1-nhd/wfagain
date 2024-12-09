@@ -58,7 +58,6 @@ namespace test
                 connection.Close();
             }
         }
-
         public void dataTableChangeFormat(DataTable dataTable)
         {
             foreach (DataRow row in dataTable.Rows)
@@ -84,7 +83,14 @@ namespace test
         private void createXuatBt_Click(object sender, EventArgs e)
         {
             FormCreateHoaDonXuat formCreateHoaDonXuat = new FormCreateHoaDonXuat();
+            formCreateHoaDonXuat.CreateSuccessfully += new EventHandler(FormCreateHoaDonXuat_CreateSuccessfully);
             formCreateHoaDonXuat.Show();
         }
+
+        private void FormCreateHoaDonXuat_CreateSuccessfully(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
     }
 }
