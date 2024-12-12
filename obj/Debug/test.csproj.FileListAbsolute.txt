@@ -16,3 +16,4 @@ C:\Users\HDUYSTRIX\source\repos\test\obj\Debug\test.FormNhap.resources
 C:\Users\HDUYSTRIX\source\repos\test\obj\Debug\test.FormXuat.resources
 C:\Users\HDUYSTRIX\source\repos\test\obj\Debug\test.FormXuatChiTiet.resources
 C:\Users\HDUYSTRIX\source\repos\test\obj\Debug\test.FormCreateHoaDonXuat.resources
+C:\Users\HDUYSTRIX\source\repos\test\obj\Debug\test.FormCreateHoaDonNhap.resources

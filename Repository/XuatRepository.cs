@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,14 @@ namespace test.Repository
     internal class XuatRepository
     {
         private readonly string connectionString = "Data Source=HDUYSTRIX;Initial Catalog=NhatNamFood;Integrated Security=True;TrustServerCertificate=True";
-
+        SqlConnection connection;
 
         public List<Xuat> getListXuat()
         {
             List<Xuat> list = new List<Xuat>();
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand("select * from Xuat x order by x.NgayXK DESC", connection))
@@ -46,6 +47,10 @@ namespace test.Repository
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Failed to get list Xuat" + ex);
             }
+            finally
+            {
+                connection?.Close();
+            }
 
             return list;
         }
@@ -55,7 +60,7 @@ namespace test.Repository
             List<XuatChiTiet> list = new List<XuatChiTiet>();
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand("select * from XuatChiTiet xct where xct.MaHDX = @maHDX", connection))
@@ -82,6 +87,10 @@ namespace test.Repository
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Failed to get list Xuat" + ex);
             }
+            finally
+            {
+                connection?.Close();
+            }
 
             return list;
         }
@@ -91,7 +100,7 @@ namespace test.Repository
             Xuat xuat = new Xuat();
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand("SELECT TOP 1 x.MaHDX FROM Xuat x ORDER BY x.MaHDX DESC", connection))
@@ -110,66 +119,11 @@ namespace test.Repository
             {
                 MessageBox.Show("Failed to find Khach hang" + ex);
             }
+            finally
+            {
+                connection?.Close();
+            }
             return "";
-        }
-
-        public Hang getHang(string maH)
-        {
-            Hang hang = new Hang();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand("select h.TenH, h.DonGia from Hang h where h.MaH = @maH", connection))
-                    {
-                        command.Parameters.AddWithValue("maH", maH);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                hang.TenH = reader["TenH"].ToString();
-                                hang.DonGia = reader.GetDecimal(reader.GetOrdinal("DonGia"));
-                                return hang;
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to find Khach hang" + ex);
-            }
-            return hang;
-        }
-
-        public String getTenKH(string maKH)
-        {
-            string tenKH = "";
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand("select kh.TenKH from KhachHang kh where kh.MaKH = @maKH", connection))
-                    {
-                        command.Parameters.AddWithValue("maKH", maKH);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                tenKH = reader["TenKH"].ToString();
-                                return tenKH;
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to find Khach hang" + ex);
-            }
-            return tenKH;
         }
     }
 }

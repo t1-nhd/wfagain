@@ -61,6 +61,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCreateHoaDonNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateHoaDonNhap.Designer.cs">
+      <DependentUpon>FormCreateHoaDonNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateHoaDonXuat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,10 +97,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\HangRepository.cs" />
     <Compile Include="Repository\KhachHangRepository.cs" />
+    <Compile Include="Repository\NguoiBanRepository.cs" />
     <Compile Include="Repository\NhapRepository.cs" />
     <Compile Include="Repository\XuatRepository.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateHoaDonNhap.resx">
+      <DependentUpon>FormCreateHoaDonNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreateHoaDonXuat.resx">
       <DependentUpon>FormCreateHoaDonXuat.cs</DependentUpon>

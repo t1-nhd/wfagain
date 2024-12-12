@@ -79,5 +79,16 @@ namespace test
             FormXuat formXuat = new FormXuat();
             formXuat.Show();
         }
+
+        private void createXuatBt_Click(object sender, EventArgs e)
+        {
+            FormCreateHoaDonNhap formCreateHoaDonNhap = new FormCreateHoaDonNhap();
+            formCreateHoaDonNhap.CreateSuccessfully += new EventHandler(FormCreateHoaDonNhap_CreateSuccessfully);
+            formCreateHoaDonNhap.Show();
+        }
+        private void FormCreateHoaDonNhap_CreateSuccessfully(object sender, EventArgs e)
+        {
+            loadData();
+        }
     }
 }

@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formcreatehoadonxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formcreatehoadonxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\repository\\nhaprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:repository\\nhaprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formcreatehoadonnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formcreatehoadonnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\repository\\hangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:repository\\hangrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formcreatehoadonnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formcreatehoadonnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formcreatehoadonxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formcreatehoadonxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|C:\\Users\\HDUYSTRIX\\source\\repos\\test\\formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|c:\\users\\hduystrix\\source\\repos\\test\\formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C148030A-AFE5-4F46-9449-1785DB5FCEEE}|test.csproj|solutionrelative:formxuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +43,90 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormCreateHoaDonXuat.cs",
-              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs",
-              "RelativeDocumentMoniker": "FormCreateHoaDonXuat.cs",
-              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs*",
-              "RelativeToolTip": "FormCreateHoaDonXuat.cs*",
-              "ViewState": "AgIAAOsAAAAAAAAAAAAqwAEBAAAJAAAAAAAAAA==",
+              "Title": "NhapRepository.cs",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\Repository\\NhapRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\NhapRepository.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\Repository\\NhapRepository.cs*",
+              "RelativeToolTip": "Repository\\NhapRepository.cs*",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBgAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T17:20:44.353Z",
+              "WhenOpened": "2024-12-12T15:28:18.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HangRepository.cs",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\Repository\\HangRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\HangRepository.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\Repository\\HangRepository.cs",
+              "RelativeToolTip": "Repository\\HangRepository.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T15:27:03.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "FormCreateHoaDonNhap.cs",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonNhap.cs",
+              "RelativeDocumentMoniker": "FormCreateHoaDonNhap.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonNhap.cs",
+              "RelativeToolTip": "FormCreateHoaDonNhap.cs",
+              "ViewState": "AgIAACMBAAAAAAAAAAA5wDgBAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T15:24:13.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "FormCreateHoaDonXuat.cs [Design]",
               "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs",
               "RelativeDocumentMoniker": "FormCreateHoaDonXuat.cs",
-              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs [Design]*",
-              "RelativeToolTip": "FormCreateHoaDonXuat.cs [Design]*",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonXuat.cs [Design]",
+              "RelativeToolTip": "FormCreateHoaDonXuat.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T17:20:36.26Z",
+              "WhenOpened": "2024-12-12T15:13:33.375Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "FormXuat.cs",
               "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormXuat.cs",
               "RelativeDocumentMoniker": "FormXuat.cs",
               "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormXuat.cs",
               "RelativeToolTip": "FormXuat.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAswE8AAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAiwF4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T16:00:34.593Z",
+              "WhenOpened": "2024-12-12T15:10:30.163Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormXuat.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormXuat.cs",
+              "RelativeDocumentMoniker": "FormXuat.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormXuat.cs [Design]",
+              "RelativeToolTip": "FormXuat.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T15:10:27.698Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormCreateHoaDonNhap.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonNhap.cs",
+              "RelativeDocumentMoniker": "FormCreateHoaDonNhap.cs",
+              "ToolTip": "C:\\Users\\HDUYSTRIX\\source\\repos\\test\\FormCreateHoaDonNhap.cs [Design]",
+              "RelativeToolTip": "FormCreateHoaDonNhap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T14:49:39.502Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

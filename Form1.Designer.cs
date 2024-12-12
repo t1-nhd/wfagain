@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridNhap = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.createXuatBt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNhap)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             this.dataGridNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNhap.Location = new System.Drawing.Point(12, 90);
             this.dataGridNhap.Name = "dataGridNhap";
+            this.dataGridNhap.ReadOnly = true;
             this.dataGridNhap.Size = new System.Drawing.Size(653, 417);
             this.dataGridNhap.TabIndex = 2;
             // 
@@ -66,12 +68,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // createXuatBt
+            // 
+            this.createXuatBt.Location = new System.Drawing.Point(590, 7);
+            this.createXuatBt.Name = "createXuatBt";
+            this.createXuatBt.Size = new System.Drawing.Size(75, 31);
+            this.createXuatBt.TabIndex = 4;
+            this.createXuatBt.Text = "Thêm";
+            this.createXuatBt.UseVisualStyleBackColor = true;
+            this.createXuatBt.Click += new System.EventHandler(this.createXuatBt_Click);
+            // 
             // FormNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(677, 519);
+            this.Controls.Add(this.createXuatBt);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridNhap);
             this.Controls.Add(this.label1);
@@ -86,6 +99,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridNhap;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button createXuatBt;
     }
 }
 

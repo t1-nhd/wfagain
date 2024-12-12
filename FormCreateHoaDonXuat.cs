@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,8 @@ namespace test
         KhachHangRepository khachHangRepository = new KhachHangRepository();
         XuatRepository xuatRepository = new XuatRepository();
         string maHDX;
+        FormXuat formXuat = new FormXuat();
+        public event EventHandler CreateSuccessfully;
 
         public FormCreateHoaDonXuat()
         {
@@ -29,6 +32,7 @@ namespace test
             InitConnectDb();
             loadData();
             maHDX = autoId();
+            label9.Text = maHDX;
         }
 
         public void InitConnectDb()
@@ -86,6 +90,9 @@ namespace test
             string unitPrice = selectedHang.DonGia.ToString("N0", new System.Globalization.CultureInfo("de-DE"));
             this.uP = (int)selectedHang.DonGia;
 
+            int tongSLKho = this.tongSLKho(selectedHang.MaH);
+            label12.Text = tongSLKho.ToString();
+
             unitPriceLabel.Text = unitPrice + "VND";
             lastPriceLabel.Text = lastPrice + "VND";
         }
@@ -103,10 +110,9 @@ namespace test
 
         private void addItemBt_Click(object sender, EventArgs e)
         {
-            saveXuatBt.Enabled = true;
             int sl = (int)quantity.Value;
             string maH = productCbBox.SelectedValue.ToString();
-            int lastPrice = (int)quantity.Value * (int)xuatRepository.getHang(maH).DonGia;
+            int lastPrice = (int)quantity.Value * (int)hangRepository.getHang(maH).DonGia;
             bool isExist = false;
 
             foreach (DataRow row in dataTable.Rows)
@@ -114,11 +120,21 @@ namespace test
                 if (row["MaH"].ToString() == maH)
                 {
                     int newSl = int.Parse(row["SoLuong"].ToString()) + sl;
-                    int newThanhTien = newSl * (int)xuatRepository.getHang(maH).DonGia;
-                    row["SoLuong"] = newSl.ToString();
-                    row["ThanhTien"] = newThanhTien.ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
                     
-                    isExist = true;
+                    if(newSl > this.tongSLKho(maH))
+                    {
+                        MessageBox.Show("Số lượng trong kho không đủ");
+                        isExist = true;
+                    }
+                    else
+                    {
+                        int newThanhTien = newSl * (int)hangRepository.getHang(maH).DonGia;
+                        row["SoLuong"] = newSl.ToString();
+                        row["ThanhTien"] = newThanhTien.ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
+
+                        isExist = true;
+                        
+                    }
                     break;
                 }
             }
@@ -127,20 +143,51 @@ namespace test
             {
                 DataRow newRow = dataTable.NewRow();
 
-                newRow["MaH"] = maH;
-                newRow["TenH"] = xuatRepository.getHang(maH).TenH;
-                newRow["SoLuong"] = sl;
-                newRow["tt"] = sl * lastPrice;
-                newRow["ThanhTien"] = (sl * lastPrice).ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
-                newRow["ThaoTac"] = "Xóa";
+                if (sl > this.tongSLKho(maH))
+                {
+                    MessageBox.Show("Số lượng trong kho không đủ");
+                }
+                else
+                {
+                    newRow["MaH"] = maH;
+                    newRow["TenH"] = hangRepository.getHang(maH).TenH;
+                    newRow["SoLuong"] = sl;
+                    newRow["tt"] = sl * lastPrice;
+                    newRow["ThanhTien"] = (sl * lastPrice).ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
+                    newRow["ThaoTac"] = "Xóa";
 
-                dataTable.Rows.Add(newRow);
+                    dataTable.Rows.Add(newRow);
 
-                DGVNewXuatCT.DataSource = dataTable;
-                DGVNewXuatCT.Columns["MaH"].Visible = false;
-                DGVNewXuatCT.Columns["tt"].Visible = false;
+                    DGVNewXuatCT.DataSource = dataTable;
+                    DGVNewXuatCT.Columns["MaH"].Visible = false;
+                    DGVNewXuatCT.Columns["tt"].Visible = false;
+                    saveXuatBt.Enabled = true;
+                }
             }
             quantity.Value = 1;
+        }
+
+        public int tongSLKho(string maH)
+        {
+            int slKho = 0;
+            try
+            {
+                if (connection.State != ConnectionState.Open) connection.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT dbo.fTongSLNhapHH(@MaH) - dbo.fTongSLXuatHH(@MaH)", connection))
+                {
+                    cmd.Parameters.AddWithValue("@MaH", maH);
+                    slKho = (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return slKho;
         }
 
         private string autoId()
@@ -162,9 +209,10 @@ namespace test
                     saveXuatBt.Enabled = false;
                 }
             }
+            cancelUpdateItemBt_Click(sender, e);
         }
 
-        public event EventHandler CreateSuccessfully;
+        
         private void saveXuatBt_Click(object sender, EventArgs e)
         {
             using(var db = new Model1())
@@ -176,6 +224,7 @@ namespace test
                 newXuat.MaKH = cusNameCbBox.SelectedValue.ToString();
 
                 decimal tongCong = 0;
+
 
                 List<XuatChiTiet> xuatChiTiets = new List<XuatChiTiet>();
                 foreach (DataRow dr in dataTable.Rows)
@@ -199,6 +248,7 @@ namespace test
 
                     dataTable.Clear();
                     this.Close();
+                    formXuat.Show();
                     MessageBox.Show("Thêm hóa đơn xuất thành công");
 
                     CreateSuccessfully?.Invoke(this, EventArgs.Empty);
@@ -220,7 +270,7 @@ namespace test
 
                 string maH = row.Cells["MaH"].Value.ToString();
                 int sl = int.Parse(row.Cells["SoLuong"].Value.ToString());
-                Hang thisHang = xuatRepository.getHang(maH);
+                Hang thisHang = hangRepository.getHang(maH);
                 string donGia = thisHang.DonGia.ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
                 string thanhTien = (sl * (int)thisHang.DonGia).ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
 
@@ -235,26 +285,33 @@ namespace test
                 label6.Text = "Cập nhật chi tiết";
             }
         }
-
         private void updateItemBt_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = DGVNewXuatCT.Rows[rowIndex];
             string maH = row.Cells["MaH"].Value.ToString();
             int sl = int.Parse(quantity.Value.ToString());
-            int tt = sl * (int)xuatRepository.getHang(maH).DonGia;
-            string thanhTien = tt.ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
 
-            DataRow foundRow = dataTable.Select($"MaH = '{maH}'").First();
+            if (sl > tongSLKho(maH))
+            {
+                MessageBox.Show("Số lượng trong kho không đủ");
+            }
+            else
+            {
+                int tt = sl * (int)hangRepository.getHang(maH).DonGia;
+                string thanhTien = tt.ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
 
-            foundRow["SoLuong"] = sl;
-            foundRow["ThanhTien"] = thanhTien;
-            foundRow["tt"] = tt;
+                DataRow foundRow = dataTable.Select($"MaH = '{maH}'").First();
 
-            DGVNewXuatCT.DataSource = null;
-            DGVNewXuatCT.DataSource = dataTable;
-            DGVNewXuatCT.Columns["MaH"].Visible = false;
-            DGVNewXuatCT.Columns["tt"].Visible = false;
-            cancelUpdateItemBt_Click(sender, e);
+                foundRow["SoLuong"] = sl;
+                foundRow["ThanhTien"] = thanhTien;
+                foundRow["tt"] = tt;
+
+                DGVNewXuatCT.DataSource = null;
+                DGVNewXuatCT.DataSource = dataTable;
+                DGVNewXuatCT.Columns["MaH"].Visible = false;
+                DGVNewXuatCT.Columns["tt"].Visible = false;
+                cancelUpdateItemBt_Click(sender, e);
+            }
         }
 
         private void cancelUpdateItemBt_Click(object sender, EventArgs e)
@@ -263,6 +320,13 @@ namespace test
             updateItemBt.Visible = false;
             cancelUpdateItemBt.Visible = false;
             addItemBt.Visible = true;
+            quantity.Value = 1;
+        }
+
+        private void backBt_Click(object sender, EventArgs e)
+        {
+            formXuat.Show();
+            this.Close();
         }
     }
 }

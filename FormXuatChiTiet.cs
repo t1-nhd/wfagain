@@ -20,7 +20,7 @@ namespace test
         SqlConnection connection;
         DataTable dataTable;
         XuatRepository xuatRepository = new XuatRepository();
-
+        HangRepository hangRepository = new HangRepository();
 
         public FormXuatChiTiet(string maHDX)
         {
@@ -53,9 +53,9 @@ namespace test
                     var row = dataTable.NewRow();
 
                     row["MaHDX"] = ct.MaHDX;
-                    row["TenHang"] = xuatRepository.getHang(ct.MaH).TenH;
+                    row["TenHang"] = hangRepository.getHang(ct.MaH).TenH;
                     row["SoLuong"] = ct.SoLuong;
-                    row["ThanhTien"] = ct.SoLuong * xuatRepository.getHang(ct.MaH).DonGia;
+                    row["ThanhTien"] = ct.SoLuong * hangRepository.getHang(ct.MaH).DonGia;
 
                     dataTable.Rows.Add(row);
                 }

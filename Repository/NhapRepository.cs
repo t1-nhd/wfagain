@@ -12,17 +12,17 @@ namespace test.Repository
     internal class NhapRepository
     {
         private readonly string connectionString = "Data Source=HDUYSTRIX;Initial Catalog=NhatNamFood;Integrated Security=True;TrustServerCertificate=True";
-    
-    
+        SqlConnection connection;
+
         public List<Nhap> getListNhap()
         {
             List<Nhap> list = new List<Nhap>();
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    using(SqlCommand command = new SqlCommand("select * from Nhap n order by n.NgayNhap DESC", connection))
+                    using(SqlCommand command = new SqlCommand("select * from Nhap n order by n.MaHD DESC", connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -47,6 +47,10 @@ namespace test.Repository
                 Console.WriteLine(ex.Message); 
                 MessageBox.Show("Failed to get list Nhap" + ex);
             }
+            finally
+            {
+                connection?.Close();
+            }
 
             return list;
         }
@@ -56,7 +60,7 @@ namespace test.Repository
             string tenNB = "";
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand("select nb.TenNB from NguoiBan nb where nb.MaNB = @maNB", connection))
@@ -75,6 +79,10 @@ namespace test.Repository
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to find Nguoi ban" + ex);
+            }
+            finally
+            {
+                connection?.Close();
             }
             return tenNB;
         }

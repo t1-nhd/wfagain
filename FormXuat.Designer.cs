@@ -53,6 +53,7 @@
             this.dataGridXuat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridXuat.Location = new System.Drawing.Point(12, 99);
             this.dataGridXuat.Name = "dataGridXuat";
+            this.dataGridXuat.ReadOnly = true;
             this.dataGridXuat.Size = new System.Drawing.Size(653, 408);
             this.dataGridXuat.TabIndex = 1;
             this.dataGridXuat.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridXuat_RowHeaderMouseClick);

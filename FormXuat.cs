@@ -20,6 +20,8 @@ namespace test
         SqlDataAdapter adapter;
         DataTable dataTable;
         XuatRepository xuatRepository = new XuatRepository();
+        HangRepository hangRepository = new HangRepository();
+        KhachHangRepository KhachHangRepository = new KhachHangRepository();
 
         public FormXuat()
         {
@@ -63,7 +65,7 @@ namespace test
             foreach (DataRow row in dataTable.Rows)
             {
                 string maKH = row["MaKH"].ToString();
-                string tenKH = xuatRepository.getTenKH(maKH);
+                string tenKH = KhachHangRepository.getTenKH(maKH);
                 row["MaKH"] = tenKH; // Thay thế giá trị MaNB bằng TenNB }
 
                 DateTime ngayNX = (DateTime)row["NgayXK"];
@@ -83,8 +85,8 @@ namespace test
         private void createXuatBt_Click(object sender, EventArgs e)
         {
             FormCreateHoaDonXuat formCreateHoaDonXuat = new FormCreateHoaDonXuat();
-            formCreateHoaDonXuat.CreateSuccessfully += new EventHandler(FormCreateHoaDonXuat_CreateSuccessfully);
             formCreateHoaDonXuat.Show();
+            this.Close();
         }
 
         private void FormCreateHoaDonXuat_CreateSuccessfully(object sender, EventArgs e)
