@@ -15,7 +15,7 @@ namespace test
 {
     public partial class FormCreateHoaDonNhap : Form
     {
-        string connectionString = "Data Source=HDUYSTRIX;Initial Catalog=NhatNamFood;Integrated Security=True;TrustServerCertificate=True";
+        string connectionString = StaticResource.connectionString();
         SqlConnection connection;
         DataTable dataTable;
         string maHDN;
@@ -179,8 +179,8 @@ namespace test
                 saveXuatBt.Enabled = true;
             }
             quantity.Value = 1;
-            totalAllPriceLb.Text = this.calculateToTalAllPrice().ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND"; ;
-            lastPriceLb.Text = this.calculateLastPrice().ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND"; ;
+            totalAllPriceLb.Text = this.calculateToTalAllPrice().ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
+            lastPriceLb.Text = this.calculateLastPrice().ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
         }
 
         private int calculateToTalAllPrice()
@@ -192,10 +192,12 @@ namespace test
             }
             if(totalPrice >= _5M)
             {
+                taxLb.Text = "Thuế GTGT(40%):";
                 taxDecrease.Text = (totalPrice * 0.4).ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND";
             }
             else
             {
+                taxLb.Text = "Thuế GTGT(30%):";
                 taxDecrease.Text = (totalPrice * 0.3).ToString("N0", new System.Globalization.CultureInfo("de-DE")) + "VND"; ;
             }
             return totalPrice;

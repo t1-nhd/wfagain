@@ -16,7 +16,7 @@ namespace test
 {
     public partial class FormCreateHoaDonXuat : Form
     {
-        string connectionString = "Data Source=HDUYSTRIX;Initial Catalog=NhatNamFood;Integrated Security=True;TrustServerCertificate=True";
+        string connectionString = StaticResource.connectionString();
         SqlConnection connection;
         DataTable dataTable;
         HangRepository hangRepository = new HangRepository();

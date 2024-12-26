@@ -16,7 +16,7 @@ namespace test
     public partial class FormXuatChiTiet : Form
     {
         string maHDX;
-        string connectionString = "Data Source=HDUYSTRIX;Initial Catalog=NhatNamFood;Integrated Security=True;TrustServerCertificate=True";
+        string connectionString = StaticResource.connectionString();
         SqlConnection connection;
         DataTable dataTable;
         XuatRepository xuatRepository = new XuatRepository();

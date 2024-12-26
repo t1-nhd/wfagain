@@ -11,7 +11,7 @@ namespace test.Repository
 {
     internal class NhapRepository
     {
-        private readonly string connectionString = "Data Source=HDUYSTRIX;Initial Catalog=NhatNamFood;Integrated Security=True;TrustServerCertificate=True";
+        private readonly string connectionString = StaticResource.connectionString();
         SqlConnection connection;
 
         public List<Nhap> getListNhap()

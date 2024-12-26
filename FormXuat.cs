@@ -15,7 +15,7 @@ namespace test
 {
     public partial class FormXuat : Form
     {
-        string connectionString = "Data Source=HDUYSTRIX;Initial Catalog=NhatNamFood;Integrated Security=True;TrustServerCertificate=True";
+        string connectionString = StaticResource.connectionString();
         SqlConnection connection;
         SqlDataAdapter adapter;
         DataTable dataTable;
